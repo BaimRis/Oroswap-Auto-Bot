@@ -339,7 +339,7 @@ async function getPoints(address) {
 }
 
 function displayCountdown(minutes, seconds) {
-  const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   process.stdout.write(`\r${colors.cyan}[⏰] Next execution in: ${timeStr}${colors.reset}`);
 }
 
@@ -362,7 +362,7 @@ async function startDailyCountdown(keys, numTransactions) {
     }
 
     console.log('\n');
-    logger.success('⏰ 24 hours completed! Starting new transaction cycle...\n');
+    logger.success('⏰ 15 Minutes completed! Starting new transaction cycle...\n');
 
     await executeAllWallets(keys, numTransactions);
   }
