@@ -338,13 +338,13 @@ async function getPoints(address) {
   }
 }
 
-function displayCountdown(hours, minutes, seconds) {
+function displayCountdown(minutes, seconds) {
   const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   process.stdout.write(`\r${colors.cyan}[⏰] Next execution in: ${timeStr}${colors.reset}`);
 }
 
 async function startDailyCountdown(keys, numTransactions) {
-  const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000; 
+  const TWENTY_FOUR_HOURS =  15 * 60 * 1000; 
 
   while (true) {
 
@@ -353,7 +353,6 @@ async function startDailyCountdown(keys, numTransactions) {
 
     while (Date.now() < endTime) {
       const remaining = endTime - Date.now();
-      const hours = Math.floor(remaining / (1000 * 60 * 60));
       const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
